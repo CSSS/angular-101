@@ -1,31 +1,33 @@
 <app-route-counter />
-<label class="pokemon-select">
-  <span>Choose a Pokémon</span>
-  <select
-    #pokemonSelect
-    [value]="selectedPokemonUrl()"
-    /* NOTE: use `set()` and `update()` to change the value of a signal */
-    (change)="selectedPokemonUrl.set(pokemonSelect.value)"
-  >
-    <option value="">Select a Pokémon</option>
-    <!-- NOTE: Angular does not use JSX, it uses its own syntax for control flow -->
-     <!-- This includes, if, else, for, switch: https://angular.dev/guide/templates/control-flow -->
-    @for (pokemon of pokemonList(); track pokemon.url) {
-      <option [value]="pokemon.url">{{ pokemon.name | titlecase }}</option>
-    }
-  </select>
-</label>
-
-<div class="card">
-  @if (selectedPokemon(); as pokemon) {
-    <h2 class="pokemon-name">{{ pokemon.species.name | titlecase }}</h2>
-    <div class="pokemon-sprite">
-      @if (pokemon.sprites.front_default) {
-        <img
-          [src]="pokemon.sprites.front_default"
-          [alt]="pokemon.species.name + ' front sprite'"
-        />
+<main>
+  <label class="pokemon-select">
+    <span>Choose a Pokémon</span>
+    <select
+      #pokemonSelect
+      [value]="selectedPokemonUrl()"
+      /* NOTE: use `set()` and `update()` to change the value of a signal */
+      (change)="selectedPokemonUrl.set(pokemonSelect.value)"
+    >
+      <option value="">Select a Pokémon</option>
+      <!-- NOTE: Angular does not use JSX, it uses its own syntax for control flow -->
+      <!-- This includes, if, else, for, switch: https://angular.dev/guide/templates/control-flow -->
+      @for (pokemon of pokemonList(); track pokemon.url) {
+        <option [value]="pokemon.url">{{ pokemon.name | titlecase }}</option>
       }
-    </div>
-  }
-</div>
+    </select>
+  </label>
+
+  <div class="card">
+    @if (selectedPokemon(); as pokemon) {
+      <h2 class="pokemon-name">{{ pokemon.species.name | titlecase }}</h2>
+      <div class="pokemon-sprite">
+        @if (pokemon.sprites.front_default) {
+          <img
+            [src]="pokemon.sprites.front_default"
+            [alt]="pokemon.species.name + ' front sprite'"
+          />
+        }
+      </div>
+    }
+  </div>
+</main>
