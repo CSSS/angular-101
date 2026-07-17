@@ -1,0 +1,52 @@
+:host {
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.pokemon-select {
+  display: grid;
+  gap: 0.5rem;
+  width: min(100%, 20rem);
+
+  span {
+    font-weight: 600;
+  }
+
+  select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #c8c8c8;
+    border-radius: 0.5rem;
+    background: white;
+    font: inherit;
+  }
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: min(100%, 24rem);
+  min-height: 24rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 12%);
+}
+
+.pokemon-name {
+  margin: 0;
+  text-align: center;
+}
+
+.pokemon-sprite {
+  display: grid;
+  place-items: center;
+
+  img {
+    width: 12rem;
+    height: 12rem;
+    image-rendering: pixelated;
+  }
+}
