@@ -1,14 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
 import { Counter } from "./counter/counter.component";
-import { BadCounter } from './bad-counter/bad-counter.component';
-import { PokemonComponent } from "./pokemon/pokemon.component";
 
 @Component({
   selector: 'app-root',
   // Imports tell the Angular compiler that something is being used, so make sure to include it in the bundle.
   // If something exists, but is not used anywhere then Angular can tree shake it, meaning dead code doesn't get shipped.
-  imports: [RouterOutlet, Counter, BadCounter, PokemonComponent],
+  imports: [RouterOutlet, RouterLinkWithHref],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

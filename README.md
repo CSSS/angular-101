@@ -1,6 +1,8 @@
 # Angular 101
 Angular 101 code repository for the W3 Committee.
 
+Look for comments throughout the codebase that says `NOTE` for explanations.
+
 ## Development server
 
 To start a local development server, run:

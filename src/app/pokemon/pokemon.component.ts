@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { TitleCasePipe } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { distinctUntilChanged, from, of, switchMap } from 'rxjs';
+import { of, switchMap } from 'rxjs';
+import { RouteCounterComponent } from '../route-counter/route-counter.component';
 
 interface PokeApiKantoResult {
   name: string;
@@ -25,7 +26,7 @@ const BASE_URL = 'https://pokeapi.co/api/v2';
 
 @Component({
   selector: 'app-pokemon',
-  imports: [TitleCasePipe],
+  imports: [TitleCasePipe, RouteCounterComponent],
   templateUrl: './pokemon.component.html',
   styleUrl: './pokemon.component.scss'
 })
@@ -43,7 +44,7 @@ export class PokemonComponent {
     // NOTE: This is an Observable, which means it can emit data at any time.
     // Observables wait for something to subscribe to it before it starts emitting data.
     // `toSignal` inherently subscribes to the input Observable and unsubscribes when done.
-    this.http.get<PokeApiKantoResponse>(`${BASE_URL}/pokemon?limit=10000`)
+    this.http.get<PokeApiKantoResponse>(`${BASE_URL}/pokemon?limit=151`)
   );
 
   // NOTE: `computed()` is a type of signal that watches the value of other signals 

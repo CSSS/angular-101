@@ -1,7 +1,12 @@
 <h2>Start from <code>app.component.ts</code> and <code>app.component.html</code></h2>
-<p>Refresh the page to reset the counters</p>
-<p>Navigate to <code>/pokemon</code> to see another component</p>
+<p>
+  Everything below the horizontal line is what the router outlet displays, everything above is part
+  of the application shell.
+</p>
+<div class="list">
+  <button routerLink="">Home</button>
+  <button routerLink="pokemon">Pokemon Selector</button>
+</div>
+<hr />
 <!-- Note: Router outlet indicates what should be shown based on the current route -->
-<app-bad-counter />
-<app-counter />
 <router-outlet />

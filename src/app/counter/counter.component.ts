@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { BadCounter } from '../bad-counter/bad-counter.component';
+import { RouteCounterComponent } from '../route-counter/route-counter.component';
 
 @Component({
   selector: 'app-counter', // NOTE: This indicates how this component is referenced in other component's templates
-  imports: [],
+  imports: [BadCounter, RouteCounterComponent],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.scss',
 })
